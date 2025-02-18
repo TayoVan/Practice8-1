@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static String reverseWords(String input) {
+        if (input == null) {
+            return null;
+        }
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(new StringBuilder(word).reverse().toString()).append(" ");
+        }
+        return result.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Оп оп введіть речення : ");
+        String original = scanner.nextLine();
+        String reversed = reverseWords(original);
+        System.out.println("Оригінальчик туточки: " + original);
+        System.out.println("А ось зміни вже туточки : " + reversed);
+        scanner.close();
+    }
+}
