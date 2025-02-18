@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+    public static String reverseString(String input) {
+        if (input == null) {
+            return null;
+        }
+        return new StringBuilder(input).reverse().toString();
+    }
+
+    public static String reverseWords(String input) {
+        if (input == null) {
+            return null;
+        }
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(new StringBuilder(word).reverse().toString()).append(" ");
+        }
+        return result.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Опаньки введіть рядочок: ");
+        String original = scanner.nextLine();
+
+        System.out.println("Оберіть опцію:");
+        System.out.println("1 - Перевернути весь рядочок");
+        System.out.println("2 - Перевернути кожне словечко в рядку");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        String result;
+        if (choice == 1) {
+            result = reverseString(original);
+        } else if (choice == 2) {
+            result = reverseWords(original);
+        } else {
+            result = "Опаньки! Невірний вибір, спробуйте ще разочок";
+        }
+
+        System.out.println("Результатик: " + result);
+        scanner.close();
+    }
+}
